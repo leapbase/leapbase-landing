@@ -1,0 +1,8 @@
+{
+  "name": "landing",
+  "dependencies": {
+  },
+  "scripts": {
+    "test_landing": "find -L ./test -name 'landing_test.js' | xargs mocha -R spec"
+  }
+}
