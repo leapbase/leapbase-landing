@@ -30,8 +30,15 @@ module.exports = function(app) {
     res.render('landing/index', { page:page });
   };
 
+  block.page.admin = function(req, res) {
+    var page = app.getPage(req, { title:'landing admin' });
+    res.render('landing/admin', { page:page });
+  };
+
   // page route
   app.server.get('/', block.page.index);
+  app.server.all('/admin/*', block.page.checkAdminLogin);
+  app.server.get('/admin/landing', block.page.admin);
 
   return block;
 };
